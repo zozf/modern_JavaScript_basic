@@ -1,0 +1,26 @@
+<!-- モジュールの基礎について -->
+<!-- モジュールは名前空間の問題を解決してくれる -->
+<!-- モジュール化されたものは、最後に読み込まれる仕組みになっているため、head タグ内で書いても問題ない -->
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>index</title>
+    </head>
+    <body>
+        <!-- type="module" を使うことによって、script 内で影響範囲が閉じる -->
+        <!-- よって、名前空間の問題が解決される -->
+        <script type="module">
+            const name = "text";
+        </script>
+        <script type="module">
+            const name = "foo";
+            document.body.textContent = name;
+        </script>
+
+        <!-- 外部ファイルからの読み込み -->
+        <script type="module" src="./index.js"></script>
+    </body>
+</html>
